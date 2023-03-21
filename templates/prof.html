@@ -2,8 +2,10 @@
 
 {% block content %}
     {% if "инженер" in prof or "строитель" in prof %}
-        <div>Инженер/строитель</div>
+        <h1 align="center">Инженерные тренажёры</h1>
+        <img src="C:\Users\uraka\PycharmProjects\flask_wtf_tasks\imgs\et.jpg" />
     {% else %}
-        <div>Нет</div>
+        <h1 align="center">Научные симуляторы</h1>
+        <img src="C:\Users\uraka\PycharmProjects\flask_wtf_tasks\imgs\ns.png" />
     {% endif %}
 {% endblock %}
