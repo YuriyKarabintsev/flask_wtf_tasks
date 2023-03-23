@@ -1,8 +1,10 @@
 import flask
 from flask import Flask
 from flask import render_template
+from loginform import LoginForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 @app.route("/")
 def index():
@@ -36,6 +38,11 @@ def answer():
         "ready": True
     }
     return render_template("auto_answer.html", inf=inf, title=inf["title"])
+
+@app.route("/login", methods=["GET", "POST"])
+def double_protection():
+    form = LoginForm()
+    return render_template("double_protection.html", title="Аварийный доступ", form=form)
 
 if __name__ == "__main__":
     app.run(port=8080, host="127.0.0.1")
