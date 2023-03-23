@@ -3,6 +3,7 @@ from flask import Flask
 from flask import render_template
 from loginform import LoginForm
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
@@ -43,6 +44,12 @@ def answer():
 def double_protection():
     form = LoginForm()
     return render_template("double_protection.html", title="Аварийный доступ", form=form)
+
+@app.route("/distribution")
+def distribution():
+    astronauts = ["Ридли Скотт", "Энди Уир", "Марк Уотни", "Венката Капур", "Тедди Сандерс", "Шон Бин"]
+    return render_template("distribution.html", astronauts=astronauts)
+
 
 if __name__ == "__main__":
     app.run(port=8080, host="127.0.0.1")
