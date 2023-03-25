@@ -50,6 +50,11 @@ def distribution():
     astronauts = ["Ридли Скотт", "Энди Уир", "Марк Уотни", "Венката Капур", "Тедди Сандерс", "Шон Бин"]
     return render_template("distribution.html", astronauts=astronauts)
 
+@app.route("/table_params/<sex>/<age>")
+def dif_par(sex, age):
+    age = int(age)
+    return render_template("colors.html", sex=sex, age=age)
+
 
 if __name__ == "__main__":
     app.run(port=8080, host="127.0.0.1")
